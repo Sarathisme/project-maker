@@ -1,0 +1,129 @@
+#!/bin/bash
+
+if [ $1 == '-w' ]; then
+    echo $2
+    eval 'mkdir $2 && cd $2'
+
+    eval 'touch index.html'
+    echo '<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bare - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1 class="mt-5">A Bootstrap 4 Starter Template</h1>
+          <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
+          <ul class="list-unstyled">
+            <li>Bootstrap 4.1.3</li>
+            <li>jQuery 3.3.1</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>' > index.html
+
+    eval 'mkdir css'
+    eval 'cd css'
+    eval 'touch main.css'
+    eval 'cd ..'
+
+    eval 'mkdir js'
+    eval 'cd js'
+    eval 'touch main.js'
+    eval 'cd ..'
+
+elif [ $1 == '-d' ]; then
+    eval 'django-admin startproject $2'
+    eval 'cd $2'
+
+elif [ $1 == '-f' ]; then
+    eval 'mkdir $2 && cd $2'
+    eval 'touch app.py .gitignore README.md requirements.txt'
+    echo 'from flask import Flask
+app = Flask(__name__)
+
+
+@app.route("/")
+def hello():
+    return "Hello World!"
+
+if __name__ == '__main__':
+    app.run(debug=True)
+' > app.py
+
+elif [ $1 == '-p' ]; then
+    eval 'mkdir $2 && cd $2'
+    eval 'touch app.py'
+
+elif [ $1 == '-s' ]; then
+    if [ $2 == '-s' ]; then
+        eval 'scrapy startproject $2'
+    elif [ $2 == '-b' ]; then
+        eval 'mkdir $2 && cd $2'
+        eval 'touch app.py'
+
+        echo 'from bs4 import BeautifulSoup' > app.py
+    fi
+
+elif [ $1 == '-b' ]; then
+    eval 'mkdir $2 && cd $2'
+    eval 'touch app.sh install.sh'
+
+    echo '#!/bin/bash' > app.sh
+    echo '#!/bin/bash' > install.sh
+fi
+
+eval 'git init'
+eval 'git add . && git commit -m "Project created and Starter code added."'
