@@ -13,8 +13,8 @@
 ####        b. For beautiful soup, use "-b"
 #### 5. "-b" For setting up a shell scripting project
 
-### To install run the following commands in the project directory.
-### 1. chmod +x install.sh
-### 2. ./install.sh
+#### To install run the following commands in the project directory.
+#### 1. chmod +x install.sh
+#### 2. ./install.sh
 
-### NOTE: The command creates the folder and the necessary files with the starter code and also initalises with a git repository and performs the first commit.
+#### NOTE: The command creates the folder and the necessary files with the starter code and also initalises with a git repository and performs the first commit.
